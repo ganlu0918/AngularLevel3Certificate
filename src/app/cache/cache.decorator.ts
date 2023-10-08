@@ -12,9 +12,9 @@ export function CacheData({ cacheDuration }) {
         descriptor: PropertyDescriptor
     ) {
         const originalMethod = descriptor.value;
-        let savedCacheDuration = localStorage.getItem(CACHE_DURATION_KEY);
-        if (!isNaN(+savedCacheDuration) && (+savedCacheDuration > 0)) {
-            cacheDuration = savedCacheDuration;
+        let savedCacheDuration: string = localStorage.getItem(CACHE_DURATION_KEY);
+        if (AppUtil.isAPositiveNumber(savedCacheDuration)) {
+            cacheDuration = +savedCacheDuration;
         }
         descriptor.value = function (...args: any[]) {
             const cacheKey = `${propertyKey.toString()}:${JSON.stringify(args)}`;
