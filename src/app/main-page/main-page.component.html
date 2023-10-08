@@ -1,0 +1,11 @@
+<div class="container-fluid">
+  <div class="well">
+    <label style="font-weight: 400;font-size:16px">Enter cache Duration(unit: seconds) to replace the default 2 hours
+      duration for testing:&nbsp; </label>
+    <input type="text" #duration placeholder="{{cacheDuration}}" class="form-control"
+      (blur)="onBlur(duration.value)">
+  </div>
+  <app-zipcode-entry> </app-zipcode-entry>
+  <app-current-conditions></app-current-conditions>
+
+</div>

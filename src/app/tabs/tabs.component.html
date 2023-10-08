@@ -1,0 +1,8 @@
+<ul class="weather-tab nav nav-tabs">
+  <li *ngFor="let tab of tabs" (click)="selectTab(tab)" [class.active]="tab.active">
+    <a href="#">{{tab.title}}
+      <span class="tab-close" (click)="closeStaticTab(tab)">x</span>
+    </a>
+  </li>
+</ul>
+<ng-content></ng-content>
